@@ -1,0 +1,1 @@
+export const navigation = { en: ["Websites", "Platforms", "Services", "Projects", "Pricing", "Tools", "About", "Contact"], es: ["Páginas web", "Plataformas", "Servicios", "Proyectos", "Precios", "Herramientas", "Nosotros", "Contacto"] } as const;
