@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Generador de propuestas"/>;}
+import{ProposalGenerator}from"@/components/tools/proposal/ProposalGenerator";export default function Page(){return <ProposalGenerator locale="es"/>}
