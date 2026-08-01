@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="en" title="Estimate Generator"/>;}
+import{EstimateGenerator}from"@/components/tools/estimate/EstimateGenerator";export default function Page(){return <EstimateGenerator locale="en"/>}

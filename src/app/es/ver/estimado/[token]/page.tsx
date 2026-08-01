@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Estimado compartido"/>;}
+import{EstimateSharedView}from"@/components/tools/estimate/EstimateSharedView";export default async function Page({params}:{params:Promise<{token:string}>}){const{token}=await params;return <EstimateSharedView locale="es" token={token}/>}
