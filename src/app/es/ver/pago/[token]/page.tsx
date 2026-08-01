@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Pago compartido"/>;}
+import{PaymentSharedView}from"@/components/tools/payment/PaymentSharedView";export default async function Page({params}:{params:Promise<{token:string}>}){const{token}=await params;return <PaymentSharedView locale="es" token={token}/>}
