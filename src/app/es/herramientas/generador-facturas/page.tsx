@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Generador de facturas"/>;}
+import{InvoiceGenerator}from"@/components/tools/invoice/InvoiceGenerator";export default function Page(){return <InvoiceGenerator locale="es"/>}
