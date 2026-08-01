@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="en" title="Shared Sample"/>;}
+import{SampleSharedView}from"@/components/tools/sample/SampleSharedView";export default async function Page({params}:{params:Promise<{token:string}>}){const{token}=await params;return <SampleSharedView locale="en" token={token}/>}
