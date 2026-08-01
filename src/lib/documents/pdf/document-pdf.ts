@@ -1,0 +1,1 @@
+import type{PdfDocumentType}from"./pdf-types";const prefixes:Record<PdfDocumentType,string>={invoice:"invoice",estimate:"estimate",proposal:"proposal","payment-request":"payment-request",order:"order",sample:"sample"};export function pdfFilename(type:PdfDocumentType,number:string){return`${prefixes[type]}-${number.replace(/[^a-z0-9-_]/gi,"-")||"document"}.pdf`;}

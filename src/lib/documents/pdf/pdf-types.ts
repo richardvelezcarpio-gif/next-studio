@@ -1,0 +1,1 @@
+export type PdfDocumentType="invoice"|"estimate"|"proposal"|"payment-request"|"order"|"sample";export type PdfExportOptions={type:PdfDocumentType;number:string;locale:"en"|"es";element?:HTMLElement|null};

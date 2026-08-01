@@ -1,6 +1,7 @@
 @import "../styles/tokens.css";
 @import "../styles/animations.css";
 @import "../styles/utilities.css";
+@import "../styles/document-print.css";
 
 * { box-sizing: border-box; }
 html { min-height: 100%; background: var(--color-surface); }
