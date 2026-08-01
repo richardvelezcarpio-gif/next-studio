@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="en" title="Shared Order"/>;}
+import{OrderSharedView}from"@/components/tools/order/OrderSharedView";export default async function Page({params}:{params:Promise<{token:string}>}){const{token}=await params;return <OrderSharedView locale="en" token={token}/>}

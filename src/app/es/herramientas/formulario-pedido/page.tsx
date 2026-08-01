@@ -1,1 +1,1 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Formulario de pedido"/>;}
+import{OrderFormGenerator}from"@/components/tools/order/OrderFormGenerator";export default function Page(){return <OrderFormGenerator locale="es"/>}
