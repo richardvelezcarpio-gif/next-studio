@@ -1,2 +1,2 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder";
-export default function EnglishHome() { return <RoutePlaceholder locale="en" title="NEXT WEB STUDIO" />; }
+import { HomePage } from "@/components/home/HomePage";
+export default function EnglishHome() { return <HomePage locale="en" />; }
