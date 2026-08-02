@@ -1,2 +1,5 @@
-import { HomePage } from "@/components/home/HomePage";
-export default function SpanishHome() { return <HomePage locale="es" />; }
+import { redirect } from "next/navigation";
+
+export default function SpanishHome() {
+  redirect("/es/paginas-web");
+}
