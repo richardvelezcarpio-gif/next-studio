@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { WhatsAppLiveContact } from "@/components/design-system/contact/WhatsAppLiveContact";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.nextstudio.agency";
+const googleMeasurementId = "G-H0X6BQDPKP";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -17,5 +19,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const structuredData = { "@context": "https://schema.org", "@type": "Organization", name: "NEXT STUDIO", url: siteUrl, email: "info@nextprintnyc.com", description: "Building digital businesses with websites, platforms, CRM systems and AI solutions." };
-  return <html lang="en"><body>{children}<WhatsAppLiveContact /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
+  const isProduction = process.env.NODE_ENV === "production";
+  return <html lang="en"><body>{children}<WhatsAppLiveContact /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body>{isProduction && <GoogleAnalytics gaId={googleMeasurementId} />}</html>;
 }
