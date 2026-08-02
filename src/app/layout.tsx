@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   keywords: ["web design", "custom business platforms", "CRM", "NYC websites", "business automation"],
   robots: { index: true, follow: true },
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
-  openGraph: { title: "NEXT STUDIO", description: "Building digital businesses with websites, platforms, CRM systems and AI solutions.", type: "website" },
-  twitter: { card: "summary_large_image", title: "NEXT STUDIO", description: "Websites, platforms and AI solutions.", creator: getXHandle() },
+  openGraph: { title: "NEXT STUDIO", description: "Building digital businesses with websites, platforms, CRM systems and AI solutions.", type: "website", images: [{ url: "/images/hero/digital-business-ecosystem-premium.png", width: 1200, height: 630, alt: "NEXT STUDIO digital business ecosystem" }] },
+  twitter: { card: "summary_large_image", title: "NEXT STUDIO", description: "Websites, platforms and AI solutions.", images: ["/images/hero/digital-business-ecosystem-premium.png"], creator: getXHandle() },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
