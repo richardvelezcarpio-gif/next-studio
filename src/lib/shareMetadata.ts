@@ -13,7 +13,9 @@ type ShareMetadataOptions = {
  * Keep each page image distinct so links shared on social media are easy to recognize.
  */
 export function createShareMetadata({ title, description, path, image, locale }: ShareMetadataOptions): Metadata {
-  const socialImage = { url: image, width: 1200, height: 630, alt: title };
+  // Facebook caches Open Graph images by URL. Versioning the asset makes a new
+  // share fetch the current visual instead of an earlier logo-only preview.
+  const socialImage = { url: `${image}?v=20260802-2`, width: 1200, height: 630, alt: title };
 
   return {
     title,
