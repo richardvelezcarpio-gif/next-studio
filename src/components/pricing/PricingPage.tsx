@@ -3,12 +3,13 @@ import { ArrowRight, Check } from "lucide-react";
 import { pricing } from "@/content/pricing";
 import { BrandHeader } from "@/components/design-system/navigation/BrandHeader";
 import { BrandFooter } from "@/components/design-system/navigation/BrandFooter";
+import { getWhatsAppUrl, socialLinks } from "@/config/social";
 import s from "./PricingPage.module.css";
 
 export function PricingPage({ locale }: { locale: "en" | "es" }) {
   const c = pricing[locale];
   const contact = `/${locale}/${locale === "en" ? "contact" : "contacto"}`;
-  const chatHref = `https://wa.me/12393337935?text=${encodeURIComponent(locale === "en" ? "Hello, I would like help choosing the right NEXT STUDIO plan." : "Hola, deseo ayuda para elegir el plan correcto de NEXT STUDIO.")}`;
+  const chatHref = getWhatsAppUrl(locale === "en" ? "Hello, I would like help choosing the right NEXT STUDIO plan." : "Hola, deseo ayuda para elegir el plan correcto de NEXT STUDIO.");
   return <><BrandHeader locale={locale}/><main>
     <section className={s.hero}><div className={s.wrap}><p>PRICING & SOLUTIONS</p><h1>{c.title}</h1><span>{c.intro}</span></div></section>
     <section className={s.section}><div className={s.wrap}>
@@ -19,6 +20,6 @@ export function PricingPage({ locale }: { locale: "en" | "es" }) {
     <section className={s.soft}><div className={s.wrap}><p>ONLINE DESIGNERS · +$300 EACH</p><div className={s.addons}>{["Banner Designer", "Business Card Designer", "Flyer Designer", "Poster Designer", "T-Shirt Designer", "Sticker Designer", "Yard Sign Designer"].map(x => <span key={x}>{x}</span>)}</div></div></section>
     <section className={s.soft}><div className={s.wrap}><p>WHAT IS INCLUDED</p><div className={s.addons}>{["Custom design", "Bilingual structure", "Responsive", "SSL", "Deployment", "Support", "Git / version control", "Vercel-ready deployment"].map(x => <span key={x}><Check size={15}/>{x}</span>)}</div></div></section>
     <section className={s.section}><div className={s.wrap}><p>PAYMENT POLICY</p><div className={s.policy}>{c.paymentPlans} {locale === "en" ? "Setup fee, monthly service and domain fee are discussed before the project starts." : "Los cargos de instalación, servicio mensual y dominio se conversan antes de iniciar el proyecto."}</div><p>FAQ</p>{c.faq.map(item => { const [q, a] = item as [string, string]; return <details key={q}><summary>{q}</summary><p>{a}</p></details>; })}</div></section>
-    <section className={s.final}><div className={s.wrap}><h1>{c.final}</h1><Link href={contact}>{c.cta}<ArrowRight size={16}/></Link><a href={chatHref} target="_blank" rel="noreferrer">{c.chat}</a></div></section>
+    <section className={s.final}><div className={s.wrap}><h1>{c.final}</h1><Link href={contact}>{c.cta}<ArrowRight size={16}/></Link>{socialLinks.whatsapp && <a href={chatHref} target="_blank" rel="noopener noreferrer">{c.chat}</a>}</div></section>
   </main><BrandFooter locale={locale}/></>;
 }
