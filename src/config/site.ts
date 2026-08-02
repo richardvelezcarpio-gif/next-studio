@@ -1,1 +1,1 @@
-export const site = { name: "NEXT WEB STUDIO", description: "Premium websites, platforms, and business systems." } as const;
+export const site = { name: "NEXT STUDIO", description: "Building digital businesses with websites, platforms, and AI solutions." } as const;
