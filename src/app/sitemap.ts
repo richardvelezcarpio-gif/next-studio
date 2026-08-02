@@ -1,2 +1,8 @@
 import type { MetadataRoute } from "next";
-export default function sitemap(): MetadataRoute.Sitemap { const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"; const paths = ["/en", "/en/websites", "/en/platforms", "/en/services", "/en/projects", "/en/pricing", "/en/tools", "/en/contact", "/es", "/es/paginas-web", "/es/plataformas", "/es/servicios", "/es/proyectos", "/es/precios", "/es/herramientas", "/es/contacto", "/en/privacy", "/en/terms", "/es/privacidad", "/es/terminos"]; return paths.map(url => ({ url: `${base}${url}`, lastModified: new Date(), changeFrequency: "weekly", priority: url === "/en" || url === "/es" ? 1 : .7 })); }
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.nextstudio.agency";
+  const homepages = new Set(["/en/websites", "/es/paginas-web"]);
+  const paths = ["/en/websites", "/en/platforms", "/en/services", "/en/projects", "/en/pricing", "/en/tools", "/en/contact", "/es/paginas-web", "/es/plataformas", "/es/servicios", "/es/proyectos", "/es/precios", "/es/herramientas", "/es/contacto", "/en/privacy", "/en/terms", "/es/privacidad", "/es/terminos"];
+  return paths.map(url => ({ url: `${base}${url}`, lastModified: new Date(), changeFrequency: "weekly", priority: homepages.has(url) ? 1 : .7 }));
+}
