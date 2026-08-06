@@ -6,6 +6,7 @@ import { WebsiteOptionsAccordion } from "./WebsiteOptionsAccordion";
 import type { Locale } from "@/types/locale";
 import { BrandHeader } from "@/components/design-system/navigation/BrandHeader";
 import { BrandFooter } from "@/components/design-system/navigation/BrandFooter";
+import { BusinessPlatformSpotlight } from "@/components/home/BusinessPlatformSpotlight";
 import styles from "./WebsitesPage.module.css";
 
 const options = [
@@ -39,6 +40,8 @@ export function WebsitesPage({ locale }: { locale: Locale }) {
             </div>
           </div>
         </section>
+
+        <BusinessPlatformSpotlight locale={locale} />
 
         <section className={styles.section}>
           <div className={styles.wrap}>
