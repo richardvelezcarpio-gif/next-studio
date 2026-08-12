@@ -9,8 +9,8 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { SocialLinks } from "@/components/design-system/social/SocialLinks";
 
 const links = {
-  en: [["Websites", "/en/websites"], ["Platforms", "/en/platforms"], ["Services", "/en/services"], ["Projects", "/en/projects"], ["Pricing", "/en/pricing"], ["Tools", "/en/tools"]],
-  es: [["Páginas web", "/es/paginas-web"], ["Plataformas", "/es/plataformas"], ["Servicios", "/es/servicios"], ["Proyectos", "/es/proyectos"], ["Precios", "/es/precios"], ["Herramientas", "/es/herramientas"]],
+  en: [["Websites", "/en/websites"], ["Platforms", "/en/platforms"], ["Services", "/en/services"], ["Projects", "/en/projects"], ["Pricing", "/en/pricing"], ["Tools", "/en/tools"], ["Free Programs", "/en/free-programs"]],
+  es: [["Páginas web", "/es/paginas-web"], ["Plataformas", "/es/plataformas"], ["Servicios", "/es/servicios"], ["Proyectos", "/es/proyectos"], ["Precios", "/es/precios"], ["Herramientas", "/es/herramientas"], ["Programas Gratis", "/es/programas-gratis"]],
 } as const;
 
 export function BrandHeader({ locale }: { locale: "en" | "es" }) {

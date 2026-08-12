@@ -16,6 +16,8 @@ const equivalents: Record<string, string> = {
   "/es/precios": "/en/pricing",
   "/en/tools": "/es/herramientas",
   "/es/herramientas": "/en/tools",
+  "/en/free-programs": "/es/programas-gratis",
+  "/es/programas-gratis": "/en/free-programs",
   "/en/contact": "/es/contacto",
   "/es/contacto": "/en/contact",
   "/en/about": "/es/nosotros",
@@ -25,5 +27,5 @@ const equivalents: Record<string, string> = {
 export function LanguageSwitcher({ locale }: { locale: "en" | "es" }) {
   const pathname = usePathname();
   const href = equivalents[pathname] ?? (locale === "en" ? "/es" : "/en");
-  return <Link href={href} aria-label={locale === "en" ? "Cambiar a español" : "Switch to English"}>{locale === "en" ? "ES" : "EN"}</Link>;
+  return <Link href={href} aria-label={locale === "en" ? "Cambiar a español" : "Switch to English"}>{locale === "en" ? "🇺🇸 EN" : "🇪🇨 ES"}</Link>;
 }
