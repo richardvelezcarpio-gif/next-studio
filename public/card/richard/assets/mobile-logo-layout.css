@@ -1,0 +1,45 @@
+@media (max-width: 768px) {
+  .hero-company-logos {
+    justify-content: center;
+    gap: 10px;
+    min-height: 0;
+    padding: 10px 14px;
+    overflow: hidden;
+  }
+
+  .hero-company-logo {
+    width: auto;
+    height: 36px;
+    max-width: calc(50% - 5px);
+    flex: 0 1 auto;
+    object-fit: contain;
+  }
+
+  .hero-company-logo--next-studio,
+  .hero-company-logo--next-print {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-topline {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-company-logos {
+    flex: 1 1 100%;
+    gap: 8px;
+    min-height: 0;
+    padding: 9px 12px;
+  }
+
+  .hero-company-logo {
+    height: 30px;
+    max-width: calc(50% - 4px);
+  }
+
+  .language-switch {
+    margin-left: auto;
+  }
+}
