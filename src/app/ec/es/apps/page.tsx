@@ -1,0 +1,1 @@
+import{EcuadorPage}from"@/components/ecuador/EcuadorPage";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("es","apps");export default()=> <EcuadorPage locale="es" page="apps"/>;
