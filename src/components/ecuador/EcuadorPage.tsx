@@ -10,6 +10,8 @@ import navStyles from "./EcuadorActiveNav.module.css";
 import { EcuadorFooter } from "./EcuadorFooter";
 import imageStyles from "./EcuadorContentImages.module.css";
 import heroStyles from "./EcuadorHeroFix.module.css";
+import { MarketSwitcher } from "@/components/design-system/navigation/MarketSwitcher";
+import { LanguageSwitcher } from "@/components/design-system/navigation/LanguageSwitcher";
 
 type Page = "solutions" | "websites" | "apps" | "ai" | "card" | "pricing" | "about" | "contact";
 const routes: Record<EcuadorLocale, Record<Page, string>> = { es:{solutions:"soluciones",websites:"paginas-web",apps:"apps",ai:"ia-automatizacion",card:"tarjeta-digital",pricing:"precios",about:"nosotros",contact:"contacto"}, en:{solutions:"solutions",websites:"websites",apps:"apps",ai:"ai-automation",card:"digital-card",pricing:"pricing",about:"about",contact:"contact"} };
@@ -21,7 +23,6 @@ const info: Record<EcuadorLocale, Record<Exclude<Page,"contact">,{title:string;l
 const serviceForPage: Partial<Record<Page, EcuadorService>> = { websites: "website", apps: "apps", ai: "ai", card: "card" };
 
 export function EcuadorPage({ locale, page }: { locale: EcuadorLocale; page: Page }) {
-  const alt = locale === "es" ? "en" : "es";
   const path = (l: EcuadorLocale, p: Page | null) => p ? `/ec/${l}/${routes[l][p]}` : `/ec/${l}`;
   const x = page === "contact" ? null : info[locale][page];
   const tr = (es: string, en: string) => locale === "es" ? es : en;
@@ -29,7 +30,7 @@ export function EcuadorPage({ locale, page }: { locale: EcuadorLocale; page: Pag
   const form = <EcuadorLeadForm locale={locale} defaultService={serviceForPage[page]} />;
 
   return <main className={s.page}>
-    <header className={s.header}><Link href={path(locale, null)}><Image src="/images/brand/next-studio-logo.png" alt="Next Studio" width={110} height={66}/></Link><nav>{links}</nav><Link className={s.language} href={path(alt, page)}>🇪🇨 Ecuador | {locale === "es" ? "Español" : "English"}</Link><details className={s.mobile}><summary>☰</summary><div>{links}</div></details></header>
+    <header className={s.header}><Link href={path(locale, null)}><Image src="/images/brand/next-studio-logo.png" alt="Next Studio" width={110} height={66}/></Link><nav>{links}</nav><div style={{display:"flex",alignItems:"center",gap:6}}><MarketSwitcher market="ec" locale={locale}/><LanguageSwitcher market="ec" locale={locale}/></div><details className={s.mobile}><summary>☰</summary><div>{links}</div></details></header>
     <section className={`${s.hero} ${s[page]} ${heroStyles.hero}`}><div className={s.heroCopy}><p>{x?.eyebrow || tr("Contacto", "Contact")}</p><h1>{x?.title || tr("Cuéntanos qué quieres construir.", "Tell us what you want to build.")}</h1><span>{x?.lead || tr("Estamos listos para conocer tu proyecto y ayudarte a elegir la solución adecuada.", "We are ready to learn about your project and help you choose the right solution.")}</span></div><EcuadorVisual page={page} /></section>
     <Editorial locale={locale} page={page} />
     {page === "pricing" || page === "websites" ? <Plans locale={locale} websites={page === "websites"} /> : page === "apps" ? <Programs locale={locale} /> : page === "contact" ? null : <>
