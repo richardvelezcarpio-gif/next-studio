@@ -1,0 +1,1 @@
+.link,.active{padding:8px 10px;border-radius:8px;transition:background-color .18s ease,color .18s ease}.active{background:#e8f3ff;color:#176df5;box-shadow:inset 0 0 0 1px #cfe3fb}.link:hover{color:#176df5}@media(max-width:940px){.link,.active{display:block;padding:10px}}
