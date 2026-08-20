@@ -4,16 +4,16 @@ export type SiteLocale = "en" | "es";
 export const MARKET_COOKIE = "nextstudio_market";
 export const LOCALE_COOKIE = "nextstudio_locale";
 
-type PageKey = "home" | "websites" | "pricing" | "digital-card" | "contact" | "about";
+type PageKey = "home" | "websites" | "pricing" | "digital-card" | "contact" | "about" | "apps-tools";
 
 const routes: Record<Market, Record<SiteLocale, Record<PageKey, string>>> = {
   us: {
-    en: { home: "/en", websites: "/en/websites", pricing: "/en/pricing", "digital-card": "/en/digital-card", contact: "/en/contact", about: "/en/about" },
-    es: { home: "/es", websites: "/es/paginas-web", pricing: "/es/precios", "digital-card": "/es/tarjeta-digital", contact: "/es/contacto", about: "/es/nosotros" },
+    en: { home: "/en", websites: "/en/websites", pricing: "/en/pricing", "digital-card": "/en/digital-card", contact: "/en/contact", about: "/en/about", "apps-tools": "/en/apps-tools" },
+    es: { home: "/es", websites: "/es/paginas-web", pricing: "/es/precios", "digital-card": "/es/tarjeta-digital", contact: "/es/contacto", about: "/es/nosotros", "apps-tools": "/es/apps-herramientas" },
   },
   ec: {
-    en: { home: "/ec/en", websites: "/ec/en/websites", pricing: "/ec/en/pricing", "digital-card": "/ec/en/digital-card", contact: "/ec/en/contact", about: "/ec/en/about" },
-    es: { home: "/ec/es", websites: "/ec/es/paginas-web", pricing: "/ec/es/precios", "digital-card": "/ec/es/tarjeta-digital", contact: "/ec/es/contacto", about: "/ec/es/nosotros" },
+    en: { home: "/ec/en", websites: "/ec/en/websites", pricing: "/ec/en/pricing", "digital-card": "/ec/en/digital-card", contact: "/ec/en/contact", about: "/ec/en/about", "apps-tools": "/ec/en/apps" },
+    es: { home: "/ec/es", websites: "/ec/es/paginas-web", pricing: "/ec/es/precios", "digital-card": "/ec/es/tarjeta-digital", contact: "/ec/es/contacto", about: "/ec/es/nosotros", "apps-tools": "/ec/es/apps" },
   },
 };
 
@@ -33,7 +33,8 @@ const usaLanguageEquivalents: Record<string, string> = {
   "/en/projects": "/es/proyectos", "/es/proyectos": "/en/projects",
   "/en/pricing": "/es/precios", "/es/precios": "/en/pricing",
   "/en/tools": "/es/herramientas", "/es/herramientas": "/en/tools",
-  "/en/free-programs": "/es/programas-gratis", "/es/programas-gratis": "/en/free-programs",
+  "/en/apps-tools": "/es/apps-herramientas", "/es/apps-herramientas": "/en/apps-tools",
+  "/en/free-programs": "/es/apps-herramientas", "/es/programas-gratis": "/en/apps-tools",
   "/en/qr-generator": "/es/generador-qr", "/es/generador-qr": "/en/qr-generator",
   "/en/contact": "/es/contacto", "/es/contacto": "/en/contact",
   "/en/about": "/es/nosotros", "/es/nosotros": "/en/about",

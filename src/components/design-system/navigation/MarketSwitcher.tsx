@@ -23,13 +23,14 @@ export function MarketSwitcher({ market, locale }: { market: Market; locale: Sit
     setOpen(false);
   }
 
-  const selected = market === "ec" ? "🇪🇨 Ecuador" : "🇺🇸 United States";
+  const unitedStates = locale === "es" ? "🇺🇸 Estados Unidos" : "🇺🇸 United States";
+  const selected = market === "ec" ? "🇪🇨 Ecuador" : unitedStates;
   return <div className="market-switcher" ref={root}>
     <button type="button" className="market-trigger" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-haspopup="menu" aria-label={locale === "es" ? "Seleccionar mercado" : "Select market"}>
       <span>{selected}</span><ChevronDown size={15} aria-hidden="true" />
     </button>
     {open && <div className="market-menu" role="menu">
-      <Link href={marketHref(pathname, "us", locale)} role="menuitem" onClick={() => remember("us")} className={market === "us" ? "selected" : ""}><span>🇺🇸 United States</span>{market === "us" && <Check size={17} aria-hidden="true" />}</Link>
+      <Link href={marketHref(pathname, "us", locale)} role="menuitem" onClick={() => remember("us")} className={market === "us" ? "selected" : ""}><span>{unitedStates}</span>{market === "us" && <Check size={17} aria-hidden="true" />}</Link>
       <Link href={marketHref(pathname, "ec", locale)} role="menuitem" onClick={() => remember("ec")} className={market === "ec" ? "selected" : ""}><span>🇪🇨 Ecuador</span>{market === "ec" && <Check size={17} aria-hidden="true" />}</Link>
     </div>}
   </div>;

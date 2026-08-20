@@ -25,7 +25,7 @@ export function LanguageSwitcher({ locale, market = "us" }: { locale: "en" | "es
   };
   const selected = locale === "en" ? "English" : "Español";
   return <div className="language-switcher" ref={root}>
-    <button type="button" className="language-trigger" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-haspopup="menu" aria-label="Select language">
+    <button type="button" className="language-trigger" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-haspopup="menu" aria-label={locale === "es" ? "Seleccionar idioma" : "Select language"}>
       <span>{selected}</span><ChevronDown size={15} aria-hidden="true" />
     </button>
     {open && <div className="language-menu" role="menu">
