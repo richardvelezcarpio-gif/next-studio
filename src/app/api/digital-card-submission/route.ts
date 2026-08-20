@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { validateDigitalCardPayment } from "@/lib/digital-card-payment";
 
 export const runtime = "nodejs";
 
@@ -50,6 +51,10 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const data = body.data ?? {};
+    if (typeof body.paymentToken !== "string") {
+      return NextResponse.json({ error: "A completed payment is required." }, { status: 403 });
+    }
+    const payment = await validateDigitalCardPayment(body.paymentToken);
     const gmailUser = process.env.GMAIL_USER;
     const gmailPassword = process.env.GMAIL_APP_PASSWORD;
 
@@ -81,7 +86,7 @@ export async function POST(request: Request) {
     }
 
     const features = Array.isArray(data.features) ? data.features.map(text).filter(Boolean).join(", ") || "—" : "—";
-    const message = `<div style="font-family:Arial,sans-serif;color:#082851;max-width:720px"><p style="color:#0768e8;font-weight:800;letter-spacing:.08em">NEW DIGITAL CARD CLIENT</p><h1>${html(data.firstName)} ${html(data.lastName)}</h1><p><strong>Submission ID:</strong> ${submissionId}<br><strong>Submission date:</strong> ${new Date().toLocaleString("en-US")}</p>${rows("PERSONAL INFORMATION", [["First Name", data.firstName], ["Last Name", data.lastName], ["Professional Title", data.title], ["Company", data.company], ["Business Slogan", data.slogan]])}${rows("CONTACT INFORMATION", [["Phone", data.phone], ["WhatsApp", data.whatsapp], ["Email", data.email], ["Address", data.address], ["City", data.city], ["State", data.state], ["ZIP", data.zip], ["Country", data.country], ["Website", data.website]])}${rows("SOCIAL MEDIA", [["Facebook", data.facebook], ["Instagram", data.instagram], ["TikTok", data.tiktok], ["LinkedIn", data.linkedin], ["YouTube", data.youtube], ["X / Twitter", data.twitter], ["Other", data.otherSocial]])}${rows("BUSINESS INFORMATION", [["Description", data.description], ["Services", data.services], ["Business Hours", data.hours], ["Service Area", data.serviceArea], ["Languages", data.spokenLanguages], ["Digital Card Language", data.cardLanguage], ["Selected Features", features]])}${rows("BRANDING", [["Primary Color", data.primaryColor], ["Secondary Color", data.secondaryColor], ["Design Notes", data.designNotes], ["Next Studio Design Freedom", data.designFreedom ? "Yes" : "No"]])}<h2>FILES</h2>${attachments.length ? `<ul>${attachments.map((file) => `<li>${file.filename}</li>`).join("")}</ul>` : "<p>No files uploaded.</p>"}</div>`;
+    const message = `<div style="font-family:Arial,sans-serif;color:#082851;max-width:720px"><p style="color:#0768e8;font-weight:800;letter-spacing:.08em">PAID DIGITAL CARD ORDER</p><h1>${html(data.firstName)} ${html(data.lastName)}</h1>${rows("PAYMENT", [["PayPal Order", payment.orderId], ["PayPal Capture", payment.captureId], ["Amount", `$${payment.amount} ${payment.currency}`], ["Status", payment.status]])}<p><strong>Submission ID:</strong> ${submissionId}<br><strong>Submission date:</strong> ${new Date().toLocaleString("en-US")}</p>${rows("PERSONAL INFORMATION", [["First Name", data.firstName], ["Last Name", data.lastName], ["Professional Title", data.title], ["Company", data.company], ["Business Slogan", data.slogan]])}${rows("CONTACT INFORMATION", [["Phone", data.phone], ["WhatsApp", data.whatsapp], ["Email", data.email], ["Address", data.address], ["City", data.city], ["State", data.state], ["ZIP", data.zip], ["Country", data.country], ["Website", data.website]])}${rows("SOCIAL MEDIA", [["Facebook", data.facebook], ["Instagram", data.instagram], ["TikTok", data.tiktok], ["LinkedIn", data.linkedin], ["YouTube", data.youtube], ["X / Twitter", data.twitter], ["Other", data.otherSocial]])}${rows("BUSINESS INFORMATION", [["Description", data.description], ["Services", data.services], ["Business Hours", data.hours], ["Service Area", data.serviceArea], ["Languages", data.spokenLanguages], ["Digital Card Language", data.cardLanguage], ["Selected Features", features]])}${rows("BRANDING", [["Primary Color", data.primaryColor], ["Secondary Color", data.secondaryColor], ["Design Notes", data.designNotes], ["Next Studio Design Freedom", data.designFreedom ? "Yes" : "No"]])}<h2>FILES</h2>${attachments.length ? `<ul>${attachments.map((file) => `<li>${file.filename}</li>`).join("")}</ul>` : "<p>No files uploaded.</p>"}</div>`;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -91,7 +96,7 @@ export async function POST(request: Request) {
       from: gmailUser,
       to: recipient,
       replyTo: text(data.email),
-      subject: `New Digital Card Client — ${text(data.firstName)} ${text(data.lastName)} — ${text(data.company)}`,
+      subject: `New Digital Card Order - ${text(data.firstName)} ${text(data.lastName)}`,
       html: message,
       attachments,
     });

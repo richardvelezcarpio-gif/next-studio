@@ -9,5 +9,5 @@ export const ecuadorMarket = {
     { id: "business-pro", name: "Business Pro", setup: "$999", monthly: "$39/month" },
     { id: "ai-business", name: "AI Business", setup: "From $1,499", monthly: "From $59/month" },
   ],
-  digitalCard: "$70",
+  digitalCard: "$130",
 } as const;
