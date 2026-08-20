@@ -77,9 +77,8 @@ export function InvoiceGeneratorSalesPage({ locale }: { locale: "en" | "es" }) {
 
       <div className={styles.mockup} aria-label={c.preview}>
         <div className={styles.windowBar}><span/><span/><span/><b>{c.preview}</b></div>
-        <div className={styles.document}>
-          <div><Image src="/images/brand/next-studio-logo.png" alt="" width={92} height={58}/><strong>{c.document}</strong></div>
-          <p>{c.client}</p><i/><i/><i/><i/><div className={styles.total}><span>{c.total}</span><b>$1,250.00</b></div>
+        <div className={styles.document} style={{ position: "relative", aspectRatio: "728 / 900", padding: 0, overflow: "hidden", background: "#eef5fc" }}>
+          <Image src="/images/invoice-generator/invoice-next-studio-reference.png" alt="Next Studio professional invoice" width={1442} height={900} priority style={{ position: "absolute", top: 0, right: 0, width: "auto", height: "100%", maxWidth: "none", objectFit: "contain" }} />
         </div>
       </div>
     </section>
