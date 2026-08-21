@@ -13,6 +13,7 @@ export type AppTool = {
   description: LocalizedText;
   price: LocalizedText;
   billing?: LocalizedText;
+  billingLabel?: LocalizedText;
   href: string | Record<Locale, string>;
   details?: Record<Locale, string>;
 };
@@ -20,20 +21,22 @@ export type AppTool = {
 export const appsTools: AppTool[] = [
   {
     slug: "digital-card",
-    image: "/free-programs/digital-card.webp",
-    kind: "free",
+    image: "/free-programs/digital-card.png",
+    kind: "premium",
     category: { es: "Marketing", en: "Marketing" },
     title: { es: "Tarjeta Digital Next Studio", en: "Next Studio Digital Card" },
     description: {
       es: "Comparte una presentación digital profesional con tus datos, servicios y enlaces importantes.",
       en: "Share a polished digital introduction with your contact details, services and important links.",
     },
-    price: { es: "Gratis", en: "Free" },
-    href: { es: "/es/tarjeta-digital", en: "/en/digital-card" },
+    price: { es: "$130", en: "$130" },
+    billingLabel: { es: "Pago único", en: "One-time payment" },
+    href: { es: "/digital-card-checkout?lang=es", en: "/digital-card-checkout?lang=en" },
+    details: { es: "/es/tarjeta-digital", en: "/en/digital-card" },
   },
   {
     slug: "teleprompter",
-    image: "/free-programs/teleprompter.webp",
+    image: "/free-programs/teleprompter.png",
     kind: "free",
     category: { es: "Contenido", en: "Content" },
     title: { es: "Teleprompter y Grabador de Video", en: "Teleprompter Video Recorder" },
@@ -46,7 +49,7 @@ export const appsTools: AppTool[] = [
   },
   {
     slug: "construction-business-manager",
-    image: "/free-programs/construction-business-manager.webp",
+    image: "/free-programs/construction-business-manager.png",
     kind: "free",
     category: { es: "Administración", en: "Management" },
     title: { es: "Administrador para Construcción", en: "Construction Business Manager" },

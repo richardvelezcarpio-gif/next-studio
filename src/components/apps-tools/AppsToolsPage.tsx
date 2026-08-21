@@ -14,7 +14,7 @@ import styles from "./AppsToolsPage.module.css";
 export function AppsToolsPage({ locale, market = "us" }: { locale: Locale; market?: Market }) {
   const [filter, setFilter] = useState<AppsToolsFilter>("all");
   const copy = appsToolsCopy[locale];
-  const marketProducts = appsTools.filter(product => market === "us" || product.kind === "free" || product.slug === "invoice-generator");
+  const marketProducts = appsTools.filter(product => market === "us" || product.kind === "free" || product.slug === "invoice-generator" || product.slug === "digital-card");
   const visibleProducts = marketProducts.filter(product => filter === "all" || product.kind === filter);
   const contactHref = market === "ec" ? `/ec/${locale}/${locale === "es" ? "contacto" : "contact"}` : locale === "es" ? "/es/contacto" : "/en/contact";
 
@@ -48,7 +48,10 @@ export function AppsToolsPage({ locale, market = "us" }: { locale: Locale; marke
             {visibleProducts.map(product => {
               const isEcuadorInvoice = market === "ec" && product.slug === "invoice-generator";
               const defaultHref = typeof product.href === "string" ? product.href : product.href[locale];
-              const href = market === "ec" && product.slug === "digital-card" ? `/ec/${locale}/${locale === "es" ? "tarjeta-digital" : "digital-card"}` : defaultHref;
+              const href = defaultHref;
+              const detailsHref = market === "ec" && product.slug === "digital-card"
+                ? `/ec/${locale}/${locale === "es" ? "tarjeta-digital" : "digital-card"}`
+                : product.details?.[locale];
               const image = typeof product.image === "string" ? product.image : product.image[locale];
               const description = isEcuadorInvoice
                 ? locale === "es"
@@ -64,7 +67,9 @@ export function AppsToolsPage({ locale, market = "us" }: { locale: Locale; marke
               const badges = copy.badges as Record<string, string>;
               const actions = copy.actions as Record<string, string>;
               const billing = copy.billing as Record<string, string>;
-              const primaryAction = isEcuadorInvoice && locale === "en" ? "Buy Now" : product.kind === "free" ? actions.free : actions.buy;
+              const primaryAction = product.slug === "digital-card"
+                ? locale === "es" ? "Comprar ahora" : "Buy Now"
+                : isEcuadorInvoice && locale === "en" ? "Buy Now" : product.kind === "free" ? actions.free : actions.buy;
               const detailsAction = isEcuadorInvoice && locale === "en" ? "View Details" : actions.details;
               return <article className={styles.card} key={product.slug}>
                 <div className={styles.image}>
@@ -75,10 +80,10 @@ export function AppsToolsPage({ locale, market = "us" }: { locale: Locale; marke
                   <p className={styles.category}>{product.category[locale]}</p>
                   <h2>{product.title[locale]}</h2>
                   <p className={styles.description}>{description}</p>
-                  <div className={styles.price}><div><strong>{product.price[locale]}</strong>{billingText && <span>{billingText}</span>}</div><small>{billing[product.kind]}</small></div>
+                  <div className={styles.price}><div><strong>{product.price[locale]}</strong>{billingText && <span>{billingText}</span>}</div><small>{product.billingLabel?.[locale] ?? billing[product.kind]}</small></div>
                   <div className={styles.actions}>
                     <a className={styles.primary} href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{primaryAction}<ArrowUpRight size={17} /></a>
-                    {product.details && <Link className={styles.secondary} href={product.details[locale]}>{detailsAction}<ArrowRight size={16} /></Link>}
+                    {detailsHref && <Link className={styles.secondary} href={detailsHref}>{detailsAction}<ArrowRight size={16} /></Link>}
                   </div>
                 </div>
               </article>;
