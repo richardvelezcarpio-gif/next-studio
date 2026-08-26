@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { FutureHome } from "@/components/home/FutureHome";
+import { homeMetadata } from "@/lib/homeMetadata";
 
-export default function SpanishHome() {
-  redirect("/es/paginas-web");
-}
+export const metadata = homeMetadata("es", "us");
+export default function SpanishHome() { return <FutureHome locale="es" market="us"/>; }
