@@ -12,12 +12,12 @@ import type { Market } from "@/lib/market-routing";
 
 const links = {
   us: {
-    en: [["Home", "/en"], ["Websites", "/en/websites"], ["Platforms", "/en/platforms"], ["Services", "/en/services"], ["Pricing", "/en/pricing"], ["Tools", "/en/tools"], ["Apps & Tools", "/en/apps-tools"]],
-    es: [["Inicio", "/es"], ["Páginas web", "/es/paginas-web"], ["Plataformas", "/es/plataformas"], ["Servicios", "/es/servicios"], ["Precios", "/es/precios"], ["Herramientas", "/es/herramientas"], ["Apps & Herramientas", "/es/apps-herramientas"]],
+    en: [["Home", "/en"], ["Websites", "/en/websites"], ["Platforms", "/en/platforms"], ["Services", "/en/services"], ["AI Diagnosis", "/en/ai-business-diagnosis"], ["Pricing", "/en/pricing"], ["Tools", "/en/tools"], ["Apps & Tools", "/en/apps-tools"]],
+    es: [["Inicio", "/es"], ["Páginas web", "/es/paginas-web"], ["Plataformas", "/es/plataformas"], ["Servicios", "/es/servicios"], ["Diagnóstico IA", "/es/diagnostico-ia"], ["Precios", "/es/precios"], ["Herramientas", "/es/herramientas"], ["Apps & Herramientas", "/es/apps-herramientas"]],
   },
   ec: {
-    en: [["Home", "/ec/en"], ["Solutions", "/ec/en/solutions"], ["Websites", "/ec/en/websites"], ["Apps & Tools", "/ec/en/apps"], ["AI & Automation", "/ec/en/ai-automation"], ["Pricing", "/ec/en/pricing"], ["About", "/ec/en/about"]],
-    es: [["Inicio", "/ec/es"], ["Soluciones", "/ec/es/soluciones"], ["Páginas web", "/ec/es/paginas-web"], ["Apps & Herramientas", "/ec/es/apps"], ["IA & Automatización", "/ec/es/ia-automatizacion"], ["Precios", "/ec/es/precios"], ["Nosotros", "/ec/es/nosotros"]],
+    en: [["Home", "/ec/en"], ["Solutions", "/ec/en/solutions"], ["Websites", "/ec/en/websites"], ["AI Diagnosis", "/en/ai-business-diagnosis"], ["Apps & Tools", "/ec/en/apps"], ["AI & Automation", "/ec/en/ai-automation"], ["Pricing", "/ec/en/pricing"], ["About", "/ec/en/about"]],
+    es: [["Inicio", "/ec/es"], ["Soluciones", "/ec/es/soluciones"], ["Páginas web", "/ec/es/paginas-web"], ["Diagnóstico IA", "/es/diagnostico-ia"], ["Apps & Herramientas", "/ec/es/apps"], ["IA & Automatización", "/ec/es/ia-automatizacion"], ["Precios", "/ec/es/precios"], ["Nosotros", "/ec/es/nosotros"]],
   },
 } as const;
 

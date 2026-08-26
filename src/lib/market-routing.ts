@@ -38,6 +38,7 @@ const usaLanguageEquivalents: Record<string, string> = {
   "/en/qr-generator": "/es/generador-qr", "/es/generador-qr": "/en/qr-generator",
   "/en/contact": "/es/contacto", "/es/contacto": "/en/contact",
   "/en/about": "/es/nosotros", "/es/nosotros": "/en/about",
+  "/en/ai-business-diagnosis": "/es/diagnostico-ia", "/es/diagnostico-ia": "/en/ai-business-diagnosis",
 };
 
 const ecuadorLanguageEquivalents: Record<string, string> = {
