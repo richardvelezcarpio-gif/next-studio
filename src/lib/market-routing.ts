@@ -39,6 +39,7 @@ const usaLanguageEquivalents: Record<string, string> = {
   "/en/contact": "/es/contacto", "/es/contacto": "/en/contact",
   "/en/about": "/es/nosotros", "/es/nosotros": "/en/about",
   "/en/ai-business-diagnosis": "/es/diagnostico-ia", "/es/diagnostico-ia": "/en/ai-business-diagnosis",
+  "/en/ai-business-diagnosis/results": "/es/diagnostico-negocio-ia/resultados", "/es/diagnostico-negocio-ia/resultados": "/en/ai-business-diagnosis/results",
 };
 
 const ecuadorLanguageEquivalents: Record<string, string> = {
