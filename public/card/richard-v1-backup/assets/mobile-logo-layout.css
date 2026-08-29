@@ -23,23 +23,36 @@
 
 @media (max-width: 600px) {
   .hero-topline {
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-wrap: nowrap;
+    gap: 6px;
   }
 
   .hero-company-logos {
-    flex: 1 1 100%;
-    gap: 8px;
+    flex: 0 1 90px;
+    gap: 4px;
     min-height: 0;
-    padding: 9px 12px;
+    padding: 6px 5px;
   }
 
   .hero-company-logo {
-    height: 30px;
-    max-width: calc(50% - 4px);
+    height: 19px;
+    max-width: calc(50% - 2px);
   }
 
   .language-switch {
     margin-left: auto;
+    padding: 3px;
+  }
+
+  .language-switch a {
+    min-height: 30px;
+    padding: 4px 3px;
+    gap: 2px;
+    font-size: 9px;
+  }
+
+  .language-flag {
+    width: 14px;
+    height: 14px;
   }
 }
