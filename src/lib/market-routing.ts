@@ -4,16 +4,16 @@ export type SiteLocale = "en" | "es";
 export const MARKET_COOKIE = "nextstudio_market";
 export const LOCALE_COOKIE = "nextstudio_locale";
 
-type PageKey = "home" | "websites" | "pricing" | "digital-card" | "contact" | "about" | "apps-tools";
+type PageKey = "home" | "websites" | "pricing" | "digital-card" | "contact" | "about" | "apps-tools" | "content-strategy";
 
 const routes: Record<Market, Record<SiteLocale, Record<PageKey, string>>> = {
   us: {
-    en: { home: "/en", websites: "/en/websites", pricing: "/en/pricing", "digital-card": "/en/digital-card", contact: "/en/contact", about: "/en/about", "apps-tools": "/en/apps-tools" },
-    es: { home: "/es", websites: "/es/paginas-web", pricing: "/es/precios", "digital-card": "/es/tarjeta-digital", contact: "/es/contacto", about: "/es/nosotros", "apps-tools": "/es/apps-herramientas" },
+    en: { home: "/en", websites: "/en/websites", pricing: "/en/pricing", "digital-card": "/en/digital-card", contact: "/en/contact", about: "/en/about", "apps-tools": "/en/apps-tools", "content-strategy": "/en/ai-content-strategy" },
+    es: { home: "/es", websites: "/es/paginas-web", pricing: "/es/precios", "digital-card": "/es/tarjeta-digital", contact: "/es/contacto", about: "/es/nosotros", "apps-tools": "/es/apps-herramientas", "content-strategy": "/es/ai-content-strategy" },
   },
   ec: {
-    en: { home: "/ec/en", websites: "/ec/en/websites", pricing: "/ec/en/pricing", "digital-card": "/ec/en/digital-card", contact: "/ec/en/contact", about: "/ec/en/about", "apps-tools": "/ec/en/apps" },
-    es: { home: "/ec/es", websites: "/ec/es/paginas-web", pricing: "/ec/es/precios", "digital-card": "/ec/es/tarjeta-digital", contact: "/ec/es/contacto", about: "/ec/es/nosotros", "apps-tools": "/ec/es/apps" },
+    en: { home: "/ec/en", websites: "/ec/en/websites", pricing: "/ec/en/pricing", "digital-card": "/ec/en/digital-card", contact: "/ec/en/contact", about: "/ec/en/about", "apps-tools": "/ec/en/apps", "content-strategy": "/en/ai-content-strategy" },
+    es: { home: "/ec/es", websites: "/ec/es/paginas-web", pricing: "/ec/es/precios", "digital-card": "/ec/es/tarjeta-digital", contact: "/ec/es/contacto", about: "/ec/es/nosotros", "apps-tools": "/ec/es/apps", "content-strategy": "/es/ai-content-strategy" },
   },
 };
 
@@ -39,6 +39,7 @@ const usaLanguageEquivalents: Record<string, string> = {
   "/en/contact": "/es/contacto", "/es/contacto": "/en/contact",
   "/en/about": "/es/nosotros", "/es/nosotros": "/en/about",
   "/en/ai-business-diagnosis": "/es/diagnostico-ia", "/es/diagnostico-ia": "/en/ai-business-diagnosis",
+  "/en/ai-content-strategy": "/es/ai-content-strategy", "/es/ai-content-strategy": "/en/ai-content-strategy",
   "/en/ai-business-diagnosis/results": "/es/diagnostico-negocio-ia/resultados", "/es/diagnostico-negocio-ia/resultados": "/en/ai-business-diagnosis/results",
 };
 
