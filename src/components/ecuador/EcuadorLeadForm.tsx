@@ -50,8 +50,10 @@ export function EcuadorLeadForm({ locale, defaultService = "other", compact = fa
 
   useEffect(() => {
     const selectedPlan = new URLSearchParams(window.location.search).get("plan");
-    if (selectedPlan && planOptions.includes(selectedPlan as (typeof planOptions)[number])) setService(selectedPlan);
-    if (selectedPlan === "digital-card") setService(t.services[serviceIndex.card]);
+    queueMicrotask(() => {
+      if (selectedPlan && planOptions.includes(selectedPlan as (typeof planOptions)[number])) setService(selectedPlan);
+      if (selectedPlan === "digital-card") setService(t.services[serviceIndex.card]);
+    });
   }, [t.services]);
 
   function submit(event: FormEvent<HTMLFormElement>) {

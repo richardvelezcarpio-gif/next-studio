@@ -14,6 +14,7 @@ export function getNavigation(market: Market, locale: SiteLocale): NavigationEnt
   const automation = market === "ec" ? `${base}/${es ? "ia-automatizacion" : "ai-automation"}` : solutions;
   const diagnosis = es ? "/es/diagnostico-ia" : "/en/ai-business-diagnosis";
   const contentStrategy = es ? "/es/ai-content-strategy" : "/en/ai-content-strategy";
+  const contentSystem = `${base}/ai-content-system?lang=${locale}`;
   const invoice = market === "ec" ? apps : `${base}/${es ? "generador-facturas" : "invoice-generator"}`;
   const card = `${base}/${es ? "tarjeta-digital" : "digital-card"}`;
   const platforms = market === "ec" ? solutions : `${base}/${es ? "plataformas" : "platforms"}`;
@@ -26,6 +27,7 @@ export function getNavigation(market: Market, locale: SiteLocale): NavigationEnt
       { label: es ? "Todas las soluciones" : "All solutions", href: solutions, description: es ? "Tecnología para hacer crecer tu negocio." : "Technology built to grow your business." },
       { label: es ? "Plataformas" : "Platforms", href: platforms, description: es ? "Sistemas digitales para operar y escalar." : "Digital systems built to operate and scale." },
       { label: es ? "IA y automatización" : "AI & automation", href: automation, description: es ? "Procesos más rápidos y eficientes." : "Faster, more efficient workflows." },
+      { label: es ? "Contenido para Redes con IA" : "AI Social Media Content", href: contentSystem, description: es ? "Contenido diario diseñado para atraer y convertir." : "Daily content designed to attract and convert." },
     ] },
     { label: "Web", href: web, items: [
       { label: es ? "Páginas Web" : "Websites", href: web, description: es ? "Experiencias premium que convierten." : "Premium experiences that convert." },
@@ -35,6 +37,7 @@ export function getNavigation(market: Market, locale: SiteLocale): NavigationEnt
     ] },
     { label: es ? "IA" : "AI", href: diagnosis, items: [
       { label: "AI Content Strategy", href: contentStrategy, description: es ? "Convierte contenido en una estrategia accionable." : "Turn content into an actionable strategy.", featured: true, badge: es ? "NUEVO" : "NEW" },
+      { label: "AI Content System", href: contentSystem, description: es ? "Estrategia y publicaciones listas para crecer." : "Strategy and ready-to-publish content built for growth.", featured: true, badge: es ? "NUEVO" : "NEW" },
       { label: es ? "Diagnóstico de Negocio" : "Business Diagnosis", href: diagnosis, description: es ? "Descubre oportunidades con IA." : "Discover opportunities with AI." },
       { label: es ? "Automatizaciones" : "Automations", href: automation, description: es ? "Ahorra tiempo en tareas repetitivas." : "Save time on repetitive work." },
       { label: es ? "Herramientas IA para Negocios" : "AI Business Tools", href: apps, description: es ? "Apps prácticas para operar mejor." : "Practical apps for better operations." },

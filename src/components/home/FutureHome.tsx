@@ -8,6 +8,7 @@ import { BrandFooter } from "@/components/design-system/navigation/BrandFooter";
 import styles from "./FutureHome.module.css";
 import { AIDiagnosisSpotlight } from "./AIDiagnosisSpotlight";
 import { AIContentStrategySpotlight } from "./AIContentStrategySpotlight";
+import { AIContentSystemSpotlight } from "./AIContentSystemSpotlight";
 
 const content = {
   es: {
@@ -54,6 +55,7 @@ export function FutureHome({ locale, market = "us" }: { locale: Locale; market?:
     <section className={styles.solutions}><div className={styles.container}><div className={styles.intro}><p className={styles.kicker}>{c.solutionKicker}</p><h2>{c.solutionTitle}</h2></div><div className={styles.solutionGrid}>{c.solutions.map(([title,text],i)=>{const Icon=solutionIcons[i];return <article key={title}><Icon/><h3>{title}</h3><p>{text}</p><ArrowRight/></article>})}</div></div></section>
     <AIDiagnosisSpotlight locale={locale}/>
     <AIContentStrategySpotlight locale={locale}/>
+    <AIContentSystemSpotlight locale={locale} market={market}/>
     <section className={styles.experiences}><div className={styles.container}><p>{c.experience}</p><div className={styles.projectGrid}>{c.projects.map((title,i)=><article key={title}><Image src={`/images/projects/${projectImages[i]}`} alt="" fill sizes="(max-width: 600px) 86vw, 25vw"/><h3>{title}</h3></article>)}</div></div></section>
     <section className={styles.why}><div className={styles.container}><article><p className={styles.kicker}>{c.why}</p><h2>{c.whyTitle}</h2><div className={styles.reasonGrid}>{c.reasons.map(x=><p key={x}><Check/>{x}</p>)}</div></article><article><p className={styles.kicker}>{c.invest}</p><h3>{c.investText}</h3><div className={styles.bigStats}>{[["+500",locale === "es"?"Proyectos exitosos":"Successful projects"],["+98%",locale === "es"?"Clientes satisfechos":"Satisfied clients"],["+10",locale === "es"?"Países confían":"Countries reached"],["24/7",locale === "es"?"Soporte especializado":"Specialized support"]].map(([n,t],i)=><div key={n}>{i===1?<Heart/>:i===2?<Rocket/>:<Clock3/>}<strong>{n}</strong><span>{t}</span></div>)}</div></article></div></section>
     <section className={styles.cta}><div className={styles.container}><div><h2>{c.ctaTitle}</h2><p>{c.ctaText}</p><Link className={styles.primary} href={contact}>{c.cta}<ArrowRight/></Link></div><div className={styles.ctaScene}><Image src="/images/home/future-city-hero.png" alt="" fill sizes="50vw"/></div></div></section>

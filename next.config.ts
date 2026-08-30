@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       afterFiles: [
+        { source: "/es/ai-content-system", destination: "/ai-content-system/index.html?lang=es" },
+        { source: "/en/ai-content-system", destination: "/ai-content-system/index.html?lang=en" },
+        { source: "/ec/es/ai-content-system", destination: "/ai-content-system/index.html?lang=es" },
+        { source: "/ec/en/ai-content-system", destination: "/ai-content-system/index.html?lang=en" },
         {
           source: '/card/richard',
           destination: '/card/richard/index.html',
