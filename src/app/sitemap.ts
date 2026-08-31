@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.nextstudio.agency";
-  const homepages = new Set(["/en/websites", "/es/paginas-web", "/ecuador"]);
-  const paths = ["/ecuador", "/en/ai-content-strategy", "/es/ai-content-strategy", "/en/ai-business-diagnosis", "/es/diagnostico-ia", "/en/websites", "/en/platforms", "/en/services", "/en/projects", "/en/pricing", "/en/tools", "/en/apps-tools", "/en/qr-generator", "/en/contact", "/es/paginas-web", "/es/plataformas", "/es/servicios", "/es/proyectos", "/es/precios", "/es/herramientas", "/es/apps-herramientas", "/es/generador-qr", "/es/curso-web-ia", "/es/contacto", "/en/privacy", "/en/terms", "/es/privacidad", "/es/terminos"];
-  return paths.map(url => ({ url: `${base}${url}`, lastModified: new Date(), changeFrequency: "weekly", priority: homepages.has(url) ? 1 : .7 }));
+  const homes = ["/es", "/en", "/ec/es", "/ec/en"];
+  const paths = [...homes, "/ecuador", "/es/paginas-web", "/en/websites", "/es/plataformas", "/en/platforms", "/es/servicios", "/en/services", "/es/proyectos", "/en/projects", "/es/precios", "/en/pricing", "/es/nosotros", "/en/about", "/es/contacto", "/en/contact", "/es/diagnostico-ia", "/en/ai-business-diagnosis", "/es/ai-content-strategy", "/en/ai-content-strategy", "/es/ai-content-system", "/en/ai-content-system", "/es/herramientas", "/en/tools", "/es/apps-herramientas", "/en/apps-tools", "/es/generador-qr", "/en/qr-generator", "/es/curso-web-ia", "/ec/es/soluciones", "/ec/en/solutions", "/ec/es/paginas-web", "/ec/en/websites", "/ec/es/apps", "/ec/en/apps", "/ec/es/ia-automatizacion", "/ec/en/ai-automation", "/ec/es/precios", "/ec/en/pricing", "/ec/es/nosotros", "/ec/en/about", "/ec/es/contacto", "/ec/en/contact", "/ec/es/ai-content-system", "/ec/en/ai-content-system"];
+  return paths.map(url => ({ url: `${base}${url}`, changeFrequency: homes.includes(url) ? "weekly" : "monthly", priority: homes.includes(url) ? 1 : .7 }));
 }

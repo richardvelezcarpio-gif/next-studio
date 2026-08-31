@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { WhatsAppLiveContact } from "@/components/design-system/contact/WhatsAppLiveContact";
 import { configuredSocialLinks, getXHandle } from "@/config/social";
@@ -18,8 +19,9 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "NEXT STUDIO", description: "Websites, platforms and AI solutions.", images: ["/images/hero/digital-business-ecosystem-premium.png"], creator: getXHandle() },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const lang = (await headers()).get("x-next-studio-lang") === "es" ? "es" : "en";
   const structuredData = { "@context": "https://schema.org", "@type": "Organization", name: "NEXT STUDIO", url: siteUrl, email: "info@nextprintnyc.com", description: "Building digital businesses with websites, platforms, CRM systems and AI solutions.", sameAs: configuredSocialLinks.map(([, url]) => url) };
   const isProduction = process.env.NODE_ENV === "production";
-  return <html lang="en"><body>{children}<WhatsAppLiveContact /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body>{isProduction && <GoogleAnalytics gaId={googleMeasurementId} />}</html>;
+  return <html lang={lang}><body>{children}<WhatsAppLiveContact /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body>{isProduction && <GoogleAnalytics gaId={googleMeasurementId} />}</html>;
 }
