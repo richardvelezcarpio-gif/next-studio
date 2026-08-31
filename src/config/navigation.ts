@@ -36,8 +36,8 @@ export function getNavigation(market: Market, locale: SiteLocale): NavigationEnt
       { label: es ? "Casos de éxito" : "Success Stories", href: projects, description: es ? "Proyectos web reales de Next Studio." : "Real web projects by Next Studio." },
     ] },
     { label: es ? "IA" : "AI", href: diagnosis, items: [
-      { label: "AI Content Strategy", href: contentStrategy, description: es ? "Convierte contenido en una estrategia accionable." : "Turn content into an actionable strategy.", featured: true, badge: es ? "NUEVO" : "NEW" },
-      { label: "AI Content System", href: contentSystem, description: es ? "Estrategia y publicaciones listas para crecer." : "Strategy and ready-to-publish content built for growth.", featured: true, badge: es ? "NUEVO" : "NEW" },
+      { label: es ? "Estrategia de Contenido con IA" : "AI Content Strategy", href: contentStrategy, description: es ? "Convierte contenido en una estrategia accionable." : "Turn content into an actionable strategy.", featured: true, badge: es ? "NUEVO" : "NEW" },
+      { label: es ? "Sistema de Contenido con IA" : "AI Content System", href: contentSystem, description: es ? "Estrategia y publicaciones listas para crecer." : "Strategy and ready-to-publish content built for growth.", featured: true, badge: es ? "NUEVO" : "NEW" },
       { label: es ? "Diagnóstico de Negocio" : "Business Diagnosis", href: diagnosis, description: es ? "Descubre oportunidades con IA." : "Discover opportunities with AI." },
       { label: es ? "Automatizaciones" : "Automations", href: automation, description: es ? "Ahorra tiempo en tareas repetitivas." : "Save time on repetitive work." },
       { label: es ? "Herramientas IA para Negocios" : "AI Business Tools", href: apps, description: es ? "Apps prácticas para operar mejor." : "Practical apps for better operations." },
