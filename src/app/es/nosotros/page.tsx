@@ -1,1 +1,2 @@
-import { RoutePlaceholder } from "@/components/design-system/shared/RoutePlaceholder"; export default function Page(){return <RoutePlaceholder locale="es" title="Nosotros"/>;}
+import { AboutPage } from "@/components/about/AboutPage";
+export default function Page(){return <AboutPage locale="es"/>;}

@@ -1,1 +1,4 @@
-import{EcuadorPage}from"@/components/ecuador/EcuadorPage";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("es","about");export default()=> <EcuadorPage locale="es" page="about"/>;
+import { AboutPage } from "@/components/about/AboutPage";
+import { ecuadorMetadata } from "@/config/ecuador-seo";
+export const metadata=ecuadorMetadata("es","about");
+export default function Page(){return <AboutPage locale="es" market="ec"/>;}
