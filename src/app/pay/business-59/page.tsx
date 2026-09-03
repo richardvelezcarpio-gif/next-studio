@@ -1,0 +1,1 @@
+import type{Metadata}from"next";import{DirectPayPage}from"@/components/pricing/DirectPayPage";import{pricingPlans}from"@/content/pricing-v2";export const metadata:Metadata={title:"BUSINESS $59 | NEXT STUDIO",robots:{index:false,follow:false}};export default function Page(){return <DirectPayPage plan={pricingPlans[1]}/>}

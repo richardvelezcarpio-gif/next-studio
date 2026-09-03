@@ -1,0 +1,15 @@
+export type PricingLocale = "en" | "es";
+export const paypalClientId = "BAAfR4NQ-_Iq1OMgQdKwbYp2y4uxnUTN7yzPbN9x42LxGbon6gPirvQy2gKT7NWp_fSilJxY93_CU7bp6w";
+export const serviceTerms = {
+  en: "By subscribing, I authorize recurring monthly payments and accept a minimum 12-month service agreement. After month 12, the subscription continues month to month until canceled. PayPal allows customers to manage or cancel the subscription from their account.",
+  es: "Al suscribirme, autorizo pagos mensuales recurrentes y acepto un acuerdo mínimo de servicio de 12 meses. Después del mes 12, la suscripción continúa mes a mes hasta su cancelación. PayPal permite administrar o cancelar la suscripción desde la cuenta del cliente.",
+} as const;
+export const pricingPlans = [
+  { slug:"start-35", name:"START", price:35, planId:"P-3VD45806AE7634018NKMJTIY", features:{ en:["Professional 5-section landing page","Mobile design","WhatsApp and form","Hosting and security","1 monthly change","Basic support"], es:["Landing profesional de 5 secciones","Diseño móvil","WhatsApp y formulario","Hosting y seguridad","1 cambio mensual","Soporte básico"]}},
+  { slug:"business-59", name:"BUSINESS", price:59, planId:"P-7WR33733DB238172JNKMJTIY", features:{ en:["Website up to 5 pages","English and Spanish","Domain for the first year","Google Calendar scheduling","Google Business and basic SEO","2 monthly changes"], es:["Website de hasta 5 páginas","Español e inglés","Dominio por el primer año","Agenda con Google Calendar","Google Business y SEO básico","2 cambios mensuales"]}},
+  { slug:"growth-99", name:"GROWTH AI", price:99, planId:"P-02S4900512887082WNKMJTJA", features:{ en:["Everything in Business","Basic CRM and pipeline","Follow-up reminders","Basic automation","Digital diagnosis","Monthly content strategy"], es:["Todo lo del plan Business","CRM básico y pipeline","Recordatorios de seguimiento","Automatización básica","Diagnóstico digital","Estrategia mensual de contenido"]}},
+] as const;
+export const pricingCopy = {
+  en:{eyebrow:"SIMPLE MONTHLY PLANS",title:"Build your digital business with a plan that can grow.",intro:"Professional websites, business systems and practical AI—clear monthly pricing with free setup.",setup:"$0 setup",monthly:"USD / month",popular:"Most Popular",included:"Everything you need to move forward",help:"Need help choosing?",whatsapp:"Chat on WhatsApp",loading:"Loading secure PayPal checkout…",error:"PayPal could not load. Please try again or contact us on WhatsApp.",approved:"Subscription approved",id:"Subscription ID"},
+  es:{eyebrow:"PLANES MENSUALES SIMPLES",title:"Construye tu negocio digital con un plan preparado para crecer.",intro:"Websites profesionales, sistemas de negocio e IA práctica—precios mensuales claros con configuración gratis.",setup:"Configuración $0",monthly:"USD / mes",popular:"Más Popular",included:"Todo lo que necesitas para avanzar",help:"¿Necesitas ayuda para elegir?",whatsapp:"Hablar por WhatsApp",loading:"Cargando pago seguro de PayPal…",error:"PayPal no pudo cargar. Inténtalo de nuevo o contáctanos por WhatsApp.",approved:"Suscripción aprobada",id:"ID de suscripción"},
+} as const;
