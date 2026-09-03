@@ -18,6 +18,7 @@ export function WebsitesPage({ locale }: { locale: Locale }) {
   const c = websites[locale];
   const contact = `/${locale}/${locale === "en" ? "contact" : "contacto"}`;
   const projects = `/${locale}/${locale === "en" ? "projects" : "proyectos"}`;
+  const nyc = locale === "en" ? "/en/web-design-nyc" : "/es/diseno-web-nyc";
 
   return (
     <>
@@ -33,6 +34,7 @@ export function WebsitesPage({ locale }: { locale: Locale }) {
                 <Link className={styles.button} href={contact}>{c.cta}<ArrowRight size={17} /></Link>
                 <Link className={styles.secondaryButton} href={projects}>{locale === "en" ? "View our work" : "Ver nuestro trabajo"}<ArrowRight size={17} /></Link>
               </div>
+              <p><Link href={nyc}>{locale === "en" ? "Looking for web design in NYC? Explore our New York small-business web design service." : "¿Buscas diseño web en NYC? Conoce nuestro servicio para pequeños negocios de Nueva York."}</Link></p>
             </div>
             <div className={styles.heroVisual}>
               <Image src="/images/websites/websites-ecosystem-premium.png" alt={locale === "en" ? "Website, business platform, mobile app and estimate tools" : "Website, plataforma de negocio, app móvil y herramientas de estimados"} fill priority sizes="(max-width: 850px) 100vw, 56vw" />
