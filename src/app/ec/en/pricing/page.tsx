@@ -1,1 +1,1 @@
-import{PricingLanding}from"@/components/pricing/PricingLanding";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("en","pricing");export default()=> <PricingLanding locale="en" market="ec"/>;
+import{ConversionLanding}from"@/components/pricing/ConversionLanding";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("en","pricing");export default()=> <ConversionLanding locale="en" market="ec"/>;
