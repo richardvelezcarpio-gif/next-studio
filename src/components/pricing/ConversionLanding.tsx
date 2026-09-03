@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FormEvent } from "react";
+import { BrandHeader } from "@/components/design-system/navigation/BrandHeader";
 import { getWhatsAppUrl } from "@/config/social";
 import { pricingPlans, type PricingLocale } from "@/content/pricing-v2";
 import styles from "./ConversionLanding.module.css";
@@ -55,13 +56,10 @@ const calendar="https://calendar.app.google/rVAAWr9ECSrbN6yx9";
 export function ConversionLanding({locale,market="us"}:{locale:PricingLocale;market?:Market}) {
   const c=copy[locale];
   const home=market==="ec"?`/ec/${locale}`:`/${locale}`;
-  const language=market==="ec"?(locale==="es"?"/ec/en/pricing":"/ec/es/precios"):(locale==="es"?"/en/pricing":"/es/precios");
-  const marketRoute=market==="ec"?(locale==="es"?"/es/precios":"/en/pricing"):(locale==="es"?"/ec/es/precios":"/ec/en/pricing");
   const chat=getWhatsAppUrl(locale==="es"?"Hola Next Studio, quiero mejorar mi negocio":"Hi Next Studio, I want to improve my business");
   function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const form=new FormData(e.currentTarget);const intro=locale==="es"?"Hola Next Studio, quiero mi diagnóstico.":"Hi Next Studio, I want my free diagnosis.";const message=`${intro}\n\n${c.name}: ${form.get("name")}\n${c.business}: ${form.get("business")}\n${c.need}: ${form.get("need")}`;window.open(getWhatsAppUrl(message),"_blank","noopener,noreferrer")}
   return <div className={styles.page}>
-    <div className={styles.topbar}><i/><span>{c.available}</span></div>
-    <header className={`${styles.nav} ${styles.shell}`}><Link className={styles.logo} href={home}><Image src="/images/conversion-landing/next-studio-logo.png" alt="Next Studio — Building Digital Businesses" width={190} height={58} priority/></Link><nav><a href="#solutions">{c.solutions}</a><a href="#process">{c.process}</a><a href="#results">{c.results}</a></nav><div className={styles.navActions}><Link className={styles.pill} href={language}>{locale==="es"?"EN":"ES"}</Link><Link className={styles.pill} href={marketRoute}>{market==="us"?"EC":"USA"}</Link><a className={styles.calendar} href={calendar} target="_blank" rel="noreferrer">▣ <span>{c.book}</span></a></div></header>
+    <BrandHeader locale={locale} market={market}/>
     <main id="top">
       <section className={`${styles.hero} ${styles.shell}`}><div><span className={styles.eyebrow}>✦ {c.eyebrow}</span><h1>{c.hero} <em>{c.converts}</em></h1><p className={styles.lead}>{c.lead}</p><div className={styles.heroActions}><a className={styles.button} href="#diagnosis">{c.diagnose} →</a><a className={styles.textLink} href={chat} target="_blank" rel="noreferrer">{c.whatsapp} ↗</a></div><a className={styles.bookInline} href={calendar} target="_blank" rel="noreferrer"><b>▣</b><span><strong>{c.meeting}</strong><small>{c.meetingSub}</small></span><i>→</i></a><div className={styles.trust}><div><b>ES / EN</b><small>{c.bilingual}</small></div><div><b>USA + EC</b><small>{c.support}</small></div><div><b>100%</b><small>{c.grow}</small></div></div></div><div className={styles.heroVisual}><Image src="/images/conversion-landing/next-studio-tech-hero.png" alt="Next Studio technology ecosystem" fill priority sizes="(max-width:900px) 92vw, 46vw"/><div className={styles.shade}/><div className={styles.imageProof}><small>● NEXT STUDIO OS</small><b>{c.connected}</b><div><span>AI</span><span>CRM</span><span>WEB</span><span>GOOGLE</span></div></div><div className={styles.float}>⚡ <span><b>{c.automation}</b><small>{c.working}</small></span></div></div></section>
       <section className={styles.proof}><div className={`${styles.shell} ${styles.proofInner}`}><div><small>{c.ecosystem}</small><strong>{c.engines}</strong></div><aside>{["WEBSITE","CRM","AI","CONTENT","GOOGLE"].map(x=><span key={x}><i/>{x}</span>)}</aside></div></section>
