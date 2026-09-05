@@ -1,1 +1,1 @@
-import{ConversionLanding}from"@/components/pricing/ConversionLanding";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("es","pricing");export default()=> <ConversionLanding locale="es" market="ec"/>;
+import{ConversionLanding}from"@/components/pricing/ConversionLanding";import{ecuadorMetadata}from"@/config/ecuador-seo";export const metadata=ecuadorMetadata("es","pricing",{url:"/images/social/pricing-websites-es.png?v=20260905-1",width:1734,height:907});export default()=> <ConversionLanding locale="es" market="ec"/>;

@@ -5,6 +5,9 @@ type ShareMetadataOptions = {
   description: string;
   path: string;
   image: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageVersion?: string;
   locale: "en_US" | "es_US";
 };
 
@@ -12,10 +15,10 @@ type ShareMetadataOptions = {
  * Produces a complete, canonical social preview for a public page.
  * Keep each page image distinct so links shared on social media are easy to recognize.
  */
-export function createShareMetadata({ title, description, path, image, locale }: ShareMetadataOptions): Metadata {
+export function createShareMetadata({ title, description, path, image, imageWidth = 1200, imageHeight = 630, imageVersion = "20260802-2", locale }: ShareMetadataOptions): Metadata {
   // Facebook caches Open Graph images by URL. Versioning the asset makes a new
   // share fetch the current visual instead of an earlier logo-only preview.
-  const socialImage = { url: `${image}?v=20260802-2`, width: 1200, height: 630, alt: title };
+  const socialImage = { url: `${image}?v=${imageVersion}`, width: imageWidth, height: imageHeight, alt: title };
 
   return {
     title,
